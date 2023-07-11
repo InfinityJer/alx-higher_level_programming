@@ -1,19 +1,16 @@
 #!/usr/bin/python3
 """
-Module: base_geometry
-Contains the class BaseGeometry.
+Contains the class BaseGeometry and subclass Rectangle
 """
 
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-class BaseGeometry:
-    """BaseGeometry class."""
 
-    def area(self):
-        """Raises an Exception with the message area() is not implemented.
-        """
-        def __init__(self, width, height):
-            """Validate the value"""
-            self.integer_validator("width", width)
-            self.__width = width
-            self.integer_validator("height", height)
-            self.__height = heigh
+class Rectangle(BaseGeometry):
+    """A representation of a rectangle"""
+    def __init__(self, width, height):
+        """instantiation of the rectangle"""
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
