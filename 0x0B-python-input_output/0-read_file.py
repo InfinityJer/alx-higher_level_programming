@@ -2,7 +2,10 @@
 """Module to read a file"""
 
 
-
 def read_file(filename=""):
-    with open(filename, encoding="utf-8") as file:
-        print(file.read(), end="")
+    """Read a file in utf8 encoding and print to stdout
+    Args:
+        filename (str): File to open
+    """
+    with open(filename, 'r', encoding='utf8') as f:
+        print(f.read(), end='')
