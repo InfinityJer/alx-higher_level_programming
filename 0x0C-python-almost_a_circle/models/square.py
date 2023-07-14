@@ -24,6 +24,20 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the Square.
+
+        Returns:
+            dict: The dictionary representation of the Square.
+        """
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
+
     @property
     def size(self):
         """
@@ -70,6 +84,7 @@ class Square(Rectangle):
             str: The string representation of the square.
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
     @property
     def width(self):
         """
