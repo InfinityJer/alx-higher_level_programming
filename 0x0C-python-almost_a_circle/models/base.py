@@ -5,6 +5,7 @@ This module defines the Base class.
 """
 
 import json
+import turtle
 
 
 class Base:
@@ -111,3 +112,53 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares.
+
+        Args:
+            list_rectangles (list): A list of Rectangle instances.
+            list_squares (list): A list of Square instances.
+
+        Returns:
+            None
+        """
+        screen = turtle.Screen()
+        screen.setup(800, 600)  # Set the screen dimensions
+
+        # Create a turtle for drawing rectangles
+        rectangle_turtle = turtle.Turtle()
+        rectangle_turtle.color("red")
+        rectangle_turtle.pensize(2)
+
+        # Draw rectangles
+        for rectangle in list_rectangles:
+            rectangle_turtle.penup()
+            rectangle_turtle.goto(rectangle.x, rectangle.y)
+            rectangle_turtle.pendown()
+            rectangle_turtle.forward(rectangle.width)
+            rectangle_turtle.right(90)
+            rectangle_turtle.forward(rectangle.height)
+            rectangle_turtle.right(90)
+            rectangle_turtle.forward(rectangle.width)
+            rectangle_turtle.right(90)
+            rectangle_turtle.forward(rectangle.height)
+            rectangle_turtle.right(90)
+
+        # Create a turtle for drawing squares
+        square_turtle = turtle.Turtle()
+        square_turtle.color("blue")
+        square_turtle.pensize(2)
+
+        # Draw squares
+        for square in list_squares:
+            square_turtle.penup()
+            square_turtle.goto(square.x, square.y)
+            square_turtle.pendown()
+            for _ in range(4):
+                square_turtle.forward(square.size)
+                square_turtle.right(90)
+
+        turtle.done()
