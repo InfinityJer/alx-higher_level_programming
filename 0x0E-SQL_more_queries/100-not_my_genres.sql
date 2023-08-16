@@ -1,7 +1,10 @@
 -- List all genres not linked to the show Dexter
 SELECT tv_genres.name
-FROM tv_genres
-LEFT JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
-LEFT JOIN tv_shows ON tv_show_genres.tv_show_id = tv_shows.id
-WHERE tv_shows.title != 'Dexter' OR tv_shows.title IS NULL
-ORDER BY tv_genres.name ASC;
+	FROM tv_shows
+	INNER JOIN tv_show_genres
+	ON tv_shows.title = "Dexter" AND tv_show_genres.show_id = tv_shows.id
+	RIGHT JOIN tv_genres
+	ON tv_show_genres.genre_id = tv_genres.id
+	WHERE tv_show_genres.genre_id IS NULL
+	GROUP BY tv_genres.name
+	ORDER BY tv_genres.name ASC;
