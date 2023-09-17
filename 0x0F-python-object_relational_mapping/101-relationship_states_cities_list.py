@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"#!/usr/bin/python3
 """
 Lists all `State` Objects and corresponding `City`
 Objects contained in the database `hbtn_0e_101_usa
