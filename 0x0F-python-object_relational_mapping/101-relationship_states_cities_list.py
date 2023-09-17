@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"#!/usr/bin/python3
 """
-Script that lists all State objects and their corresponding City objects
+Lists all `State` Objects and corresponding `City`
+Objects contained in the database `hbtn_0e_101_usa
 Usage: ./101-relationship_states_cities_list.py <mysql username>
                                                 <mysql password>
                                                 <database name>
