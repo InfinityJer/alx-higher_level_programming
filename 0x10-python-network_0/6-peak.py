@@ -5,24 +5,16 @@ From unsorted intagers finds a peak.
 
 
 def find_peak(list_of_integers):
-    """Find a peak in a list of unsorted integers."""
-    if len(list_of_integers) == 0:
+    if not list_of_integers:
         return None
-    elif len(list_of_integers) == 1:
-        return list_of_integers[0]
-    elif list_of_integers[0] >= 1:
-        if list_of_integers[0] >= list_of_integers[1]:
-            return list_of_integers[0]
 
-    h = len(list_of_integers) - 1
-    low = 0
-    arr = list_of_integers
-    while h > low:
-        mid = (h + low) // 2
-        if arr[mid] <= arr[mid + 1]:
-            low = mid + 1
-        elif arr[mid] <= arr[mid - 1]:
-            h = mid - 1
-        elif arr[mid] >= arr[mid + 1] and arr[mid] >= arr[mid - 1]:
-            return arr[mid]
-    return arr[low]
+    left, right = 0, len(list_of_integers) - 1
+
+    while left < right:
+        mid = (left + right) // 2
+        if list_of_integers[mid] > list_of_integers[mid + 1]:
+            right = mid
+        else:
+            left = mid + 1
+
+    return list_of_integers[left]
