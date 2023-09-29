@@ -3,21 +3,9 @@
 Script fetches https://alx-intranet.hbtn.io/status
 """
 import urllib.request
-import urllib.error
-import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: {} <URL>".format(sys.argv[0]))
-        sys.exit(1)
-
-    url = sys.argv[1]
-
-    try:
-        # Send a request to the provided URL and store the response
-        with urllib.request.urlopen(url) as response:
-            body = response.read().decode("utf-8")
-            print(body)
-    except urllib.error.HTTPError as e:
-        # Handle HTTPError exceptions and print the error code
-        print("Error code:", e.code)
+    r = requests.get('https://alx-intranet.hbtn.io/status')
+    print("Body response:")
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
