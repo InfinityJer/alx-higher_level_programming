@@ -1,23 +1,15 @@
 #!/usr/bin/python3
 import urllib.request
 import urllib.parse
-import sys
+from sys import argv
 
+# Takes in URL and an email and sends POST request to passed URL
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: {} <URL> <email>".format(sys.argv[0]))
-        sys.exit(1)
-
-    url = sys.argv[1]
-    email = sys.argv[2]
-
-    # Create a dictionary to hold the email parameter
-    data = {"email": email}
-    data = urllib.parse.urlencode(data).encode("utf-8")
-
-    # Send a POST request to the provided URL with the email parameter
-    with urllib.request.urlopen(url, data=data) as response:
-        body = response.read().decode("utf-8")
-
-    # Display the body of the response
-    print(body)
+    values = dict(email=argv[2])
+    url = argv[1]
+    data = urllib.parse.urlencode(values)
+    data = data.encode('ascii')
+    req = urllib.request.Request(url, data)
+    with urllib.request.urlopen(req) as response:
+        html_page = response.read().decode("utf-8")
+        print(html_page)
