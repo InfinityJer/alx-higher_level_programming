@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+"""
+Create a dictionary, Send a POST request
+Display the body of the response
+"""
 import urllib.request
 import urllib.parse
 from sys import argv
 
-# Takes in URL and an email and sends POST request to passed URL
 if __name__ == "__main__":
     values = dict(email=argv[2])
     url = argv[1]
