@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Displays body of response but also manages HTTPErrors
+"""
 import urllib.request
 import urllib.error
 import sys
