@@ -1,23 +1,14 @@
 #!/usr/bin/python3
 """
-Displays body of response but also manages HTTPErrors
+script that takes in a URL
+sends a request to the URL and displays the body of the response
 """
 import requests
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: {} <URL>".format(sys.argv[0]))
-        sys.exit(1)
-
-    url = sys.argv[1]
-
-    # Send a GET request to the provided URL using the requests package
-    response = requests.get(url)
-
-    # Display the body of the response
-    print(response.text)
-
-    # Check the HTTP status code and print an error message if >= 400
-    if response.status_code >= 400:
-        print("Error code:", response.status_code)
+    r = requests.get(argv[1])
+    if int(r.status_code) < 400:
+        print(r.text)
+    else:
+        print("Error code: {}".format(r.status_code))
