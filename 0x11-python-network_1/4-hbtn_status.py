@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Script fetches https://alx-intranet.hbtn.io/status
+Python Script fetches https://alx-intranet.hbtn.io/status
 """
-import urllib.request
+import request
 
 if __name__ == "__main__":
     r = requests.get('https://alx-intranet.hbtn.io/status')
